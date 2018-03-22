@@ -40,11 +40,21 @@ function soltaNaGrama(ev) {
     }
 }
 
+function reiniciar() {
+    location.reload();
+}
+
+
 </script>
 </head>
 <body>
 
 <p>Teste para arrastar e colar imagens:</p>
+<br/>
+<hr/>
+<div style="float:bottom;"><button onclick="reiniciar()">Reiniciar</button></div>
+<br/>
+<hr/>
 
 <img id="peixe" src="https://image.flaticon.com/icons/png/512/194/194942.png" draggable="true" ondragstart="drag(event)" width="300" height="300">
 
@@ -54,10 +64,6 @@ function soltaNaGrama(ev) {
 <div id="grama" class="div1" style="float:left; background-color: green; background-image: url('https://image.flaticon.com/icons/svg/774/774686.svg'); background-repeat:no-repeat;" ondrop="soltaNaGrama(event)" ondragover="allowDrop(event)"></div>
 
 <div id="mar" class="div1" style="float:left; background-color: blue; background-image: url('https://image.flaticon.com/icons/svg/430/430572.svg'); background-repeat:no-repeat;" ondrop="soltaNoMar(event)" ondragover="allowDrop(event)"></div>
-
-
-
-
 
 
 
