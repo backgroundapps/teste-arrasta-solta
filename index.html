@@ -18,7 +18,7 @@ function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
 
-function drop(ev) {
+function soltaNoMar(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
    
@@ -38,8 +38,9 @@ function drop(ev) {
 <img id="drag1" src="https://image.flaticon.com/icons/png/512/194/194942.png" draggable="true" ondragstart="drag(event)" width="69" height="69">
 
 <img id="cachorro" src="https://image.flaticon.com/icons/png/512/194/194975.png" draggable="true" ondragstart="drag(event)" width="69" height="69">
+<br/>
 
-<div class="div1" style="background-color: blue; background-image: url('https://image.flaticon.com/icons/svg/430/430572.svg'); background-repeat:no-repeat;" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div class="div1" style="float:left; background-color: blue; background-image: url('https://image.flaticon.com/icons/svg/430/430572.svg'); background-repeat:no-repeat;" ondrop="soltaNoMar(event)" ondragover="allowDrop(event)"></div>
 
 
 
