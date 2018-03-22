@@ -23,9 +23,10 @@ function soltaNoMar(ev) {
     var data = ev.dataTransfer.getData("text");
    
     if(data == "cachorro") {
-        alert("O cachorro não foi feito pra morar na água!");
+  		errou(data);
     } else {
         ev.target.appendChild(document.getElementById(data));
+        acertou()
     }
 }
 
@@ -34,8 +35,9 @@ function soltaNaGrama(ev) {
     var data = ev.dataTransfer.getData("text");
      
     if(data == "peixe") {
-        alert("O peixinho não foi feito para ficar fora da água!");
+   		errou(data);
     } else {
+        acertou()
         ev.target.appendChild(document.getElementById(data));
     }
 }
@@ -44,12 +46,34 @@ function reiniciar() {
     location.reload();
 }
 
+function errou(animal) {
+    document.getElementById("acertou").style.display = 'none';
+    if(animal == 'peixe') {
+    	document.getElementById("errouPeixe").style.display = 'block';
+    } else {
+    	document.getElementById("errouCachorro").style.display = 'block';
+    }
+
+}
+
+function acertou() {
+    document.getElementById("errouPeixe").style.display = 'none';
+    document.getElementById("errouCachorro").style.display = 'none';
+	document.getElementById("acertou").style.display = 'block';
+}
+
+
 
 </script>
 </head>
 <body>
 
 <p>Teste para arrastar e colar imagens:</p>
+
+<h1 id="acertou"       style="display: none; font-color: blue">Muito bem!</h1>
+<h1 id="errouPeixe"    style="display: none; font-color: red">O peixinho não pode viver fora do mar!</h1>
+<h1 id="errouCachorro" style="display: none; font-color: red">A casa do cachorro não pode ser no mar</h1>
+
 <br/>
 <hr/>
 <div style="float:bottom;"><button onclick="reiniciar()">Reiniciar</button></div>
