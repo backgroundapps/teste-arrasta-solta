@@ -8,6 +8,13 @@
     padding: 10px;
     border: 1px solid #aaaaaa;
 }
+
+#top {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top; /* here */
+}
 </style>
 <script>
 function allowDrop(ev) {
@@ -47,6 +54,7 @@ function reiniciar() {
 }
 
 function errou(animal) {
+    document.getElementById("ajuda").style.display = 'none';
     document.getElementById("acertou").style.display = 'none';
     if(animal == 'peixe') {
     	document.getElementById("errouPeixe").style.display = 'block';
@@ -57,37 +65,35 @@ function errou(animal) {
 }
 
 function acertou() {
+    document.getElementById("ajuda").style.display = 'none';
     document.getElementById("errouPeixe").style.display = 'none';
     document.getElementById("errouCachorro").style.display = 'none';
 	document.getElementById("acertou").style.display = 'block';
 }
 
-
-
 </script>
 </head>
 <body>
 
-<p>Teste para arrastar e colar imagens:</p>
 
-<h1 id="acertou"       style="display: none; color: blue">Muito bem!</h1>
-<h1 id="errouPeixe"    style="display: none; color: red">O peixinho não pode viver fora do mar!</h1>
-<h1 id="errouCachorro" style="display: none; color: red">A casa do cachorro não pode ser no mar</h1>
+<div id="top">	
+    <button onclick="reiniciar()">Reiniciar</button></div>
+    <h1 id="ajuda">Teste para arrastar e colar imagens</h1>
+    <h1 id="acertou"       style="display: none; color: blue">Muito bem!</h1>
+    <h1 id="errouPeixe"    style="display: none; color: red">O peixinho não pode viver fora do mar!</h1>
+    <h1 id="errouCachorro" style="display: none; color: red">A casa do cachorro não pode ser no mar</h1>
+</div>
 
-<br/>
-<hr/>
-<div style="float:bottom;"><button onclick="reiniciar()">Reiniciar</button></div>
-<br/>
-<hr/>
 
-<img id="peixe" src="https://image.flaticon.com/icons/png/512/194/194942.png" draggable="true" ondragstart="drag(event)" width="300" height="300">
 
-<img id="cachorro" src="https://image.flaticon.com/icons/png/512/194/194975.png" draggable="true" ondragstart="drag(event)" width="300" height="300">
-<br/>
 
 <div id="grama" class="div1" style="float:left; background-color: green; background-image: url('https://image.flaticon.com/icons/svg/774/774686.svg'); background-repeat:no-repeat;" ondrop="soltaNaGrama(event)" ondragover="allowDrop(event)"></div>
 
 <div id="mar" class="div1" style="float:left; background-color: blue; background-image: url('https://image.flaticon.com/icons/svg/430/430572.svg'); background-repeat:no-repeat;" ondrop="soltaNoMar(event)" ondragover="allowDrop(event)"></div>
+
+<img id="peixe" src="https://image.flaticon.com/icons/png/512/194/194942.png" draggable="true" ondragstart="drag(event)" width="300" height="300">
+
+<img id="cachorro" src="https://image.flaticon.com/icons/png/512/194/194975.png" draggable="true" ondragstart="drag(event)" width="300" height="300">
 
 
 
