@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div1 {
+    width: 300px;
+    height: 350px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+</style>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    
+    if(data == "cachorro") {
+    	alert("O cachorro não foi feito pra morar na água!");
+    } else {
+    	ev.target.appendChild(document.getElementById(data));
+    }
+    
+}
+</script>
+</head>
+<body>
+
+<p>Teste para arrastar e colar imagens:</p>
+
+<div class="div1" style="background-color: blue; background-image: url('https://image.flaticon.com/icons/svg/430/430572.svg'); background-repeat:no-repeat;" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+
+<img id="drag1" src="https://image.flaticon.com/icons/png/512/194/194942.png" draggable="true" ondragstart="drag(event)" width="69" height="69">
+
+<img id="cachorro" src="https://image.flaticon.com/icons/png/512/194/194975.png" draggable="true" ondragstart="drag(event)" width="69" height="69">
+
+
+</body>
+</html>
